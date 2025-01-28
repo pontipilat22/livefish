@@ -1,0 +1,507 @@
+/* ------------------------------------
+   БАЗОВЫЕ СТИЛИ
+------------------------------------ */
+:root {
+  --main-color: #006994; /* Цвет, ассоциирующийся с водой */
+  --secondary-color: #00A8E8;
+  --dark-color: #333;
+  --light-color: #fff;
+  --header-height: 60px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f3f9fb;
+  color: var(--dark-color);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Выделение ключевых слов в тексте */
+.highlight {
+  color: var(--main-color);
+  font-weight: bold;
+}
+
+/* ------------------------------------
+   ШАПКА (HEADER)
+------------------------------------ */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background: var(--main-color);
+  color: var(--light-color);
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header .logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+/* Навигация */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--light-color);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: var(--secondary-color);
+}
+
+/* ------------------------------------
+   ГАМБУРГЕР-МЕНЮ (для мобильных)
+------------------------------------ */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: var(--light-color);
+  border-radius: 2px;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+  
+  nav {
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background: var(--main-color);
+    transform: translateY(-300px);
+    transition: transform 0.3s ease;
+  }
+  
+  nav.active {
+    transform: translateY(0);
+  }
+  
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  
+  nav ul li {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 15px;
+  }
+}
+
+/* ------------------------------------
+   ГЛАВНЫЙ БЛОК (HERO) С ВИДЕО
+------------------------------------ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden; /* Скрываем выходящее за пределы видео */
+}
+
+/* Само видео на заднем плане */
+#hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover; /* Обрезаем видео пропорционально */
+  z-index: 0;
+}
+
+/* Полупрозрачный слой поверх видео */
+.overlay {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background: rgba(0, 0, 0, 0.808);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  color: var(--light-color);
+  padding: 20px;
+  animation: fadeInUp 1.2s ease-out; /* Анимация появления */
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.hero-content a {
+  display: inline-block;
+  padding: 15px 30px;
+  background: var(--secondary-color);
+  color: var(--light-color);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.hero-content a:hover {
+  background: #0086bd;
+  transform: translateY(-3px);
+}
+
+/* Адаптируем размер шрифтов на маленьких экранах */
+@media screen and (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+
+/* Анимация появления (fade + move up) */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------------------------
+   Волнистый разделитель (Wave)
+------------------------------------ */
+.custom-wave-divider {
+  position: relative;
+  width: 100%;
+  height: 0; /* svg сама задаст высоту */
+  overflow: hidden;
+}
+
+.custom-wave-divider svg {
+  display: block;
+  width: 100%;
+  
+}
+
+/* ------------------------------------
+   ОБЩИЕ СТИЛИ ДЛЯ СЕКЦИЙ
+------------------------------------ */
+section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+/* Отступы для фиксированного header */
+#hero,
+#about,
+#fish,
+#testimonials,
+#contact {
+  scroll-margin-top: var(--header-height);
+}
+
+/* ------------------------------------
+   О НАС (ABOUT) С ГРАДИЕНТОМ ФОНА
+------------------------------------ */
+#about {
+  background: linear-gradient(to right, #ffffff 0%, #dff6fa 100%);
+  /* Мягкий градиент от белого к легкому голубому */
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 250px;
+  line-height: 1.6;
+}
+
+.about-text p {
+  margin-bottom: 20px;
+}
+
+.about-text ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.about-text ul li {
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.about-text ul li::before {
+  content: "•";
+  color: var(--main-color);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* ------------------------------------
+   АССОРТИМЕНТ РЫБЫ (FISH)
+------------------------------------ */
+#fish {
+  background: #f3f9fb; /* уже основной фон, можно оставить */
+}
+
+.fish-info {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.fish-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.fish-carousel-container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
+}
+
+.fish-slide {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: #000; /* Для видео c object-fit:contain */
+}
+
+.fish-slide.active {
+  display: flex;
+}
+
+.fish-slide img,
+.fish-slide video {
+  width: auto;
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  background: #000;
+  border-radius: 6px;
+}
+
+.carousel-buttons.fish-carousel-buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.carousel-buttons.fish-carousel-buttons button {
+  padding: 10px 20px;
+  background: var(--main-color);
+  color: var(--light-color);
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s, transform 0.3s;
+}
+.carousel-buttons.fish-carousel-buttons button:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* ------------------------------------
+   ОТЗЫВЫ (TESTIMONIALS) С ГРАДИЕНТОМ И ТЕНЬЮ
+------------------------------------ */
+#testimonials {
+  background: linear-gradient(to right, #dff6fa 0%, #ffffff 100%);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+}
+
+.testimonials-container {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
+  padding: 20px;
+  background: #fff; /* Белый контейнер */
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+.testimonial {
+  display: none;
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.testimonial.active {
+  display: block;
+}
+
+.testimonial p {
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.testimonial span {
+  color: #777;
+}
+
+.carousel-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.carousel-buttons button {
+  padding: 10px 20px;
+  background: var(--main-color);
+  color: var(--light-color);
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.carousel-buttons button:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* ------------------------------------
+   КОНТАКТЫ
+------------------------------------ */
+#contact {
+  text-align: center;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.whatsapp-btn,
+.call-btn {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: var(--main-color);
+  color: var(--light-color);
+  font-weight: bold;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.whatsapp-btn:hover,
+.call-btn:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* ------------------------------------
+   ПОДВАЛ (FOOTER)
+------------------------------------ */
+footer {
+  background: #ccc;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+  color: #333;
+}
+
+/* ------------------------------------
+   КНОПКА "НАВЕРХ"
+------------------------------------ */
+.btn-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  background: var(--main-color);
+  color: var(--light-color);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: none; /* По умолчанию скрыта */
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn-to-top:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}

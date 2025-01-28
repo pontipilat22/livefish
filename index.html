@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Продажа живой рыбы по всему Казахстану</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Подключаем стили -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Шапка сайта -->
+  <header>
+    <div class="logo">Живая рыба</div>
+    <!-- Иконка-гамбургер (скрывается на больших экранах) -->
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="navbar">
+      <ul>
+        <li><a href="#hero">Главная</a></li>
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#fish">Ассортимент</a></li>
+        <li><a href="#testimonials">Отзывы</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Главный блок с видео-фоном (Hero) -->
+  <section class="hero" id="hero">
+    <!-- Видео-фон -->
+    <video autoplay muted loop playsinline id="hero-video">
+      <source src="video/carpvd1.mp4" type="video/mp4">
+      Ваш браузер не поддерживает видео фон.
+    </video>
+    <!-- Полупрозрачный слой поверх видео для затемнения -->
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+      <h1>Живая рыба по всему Казахстану</h1>
+      <p>Продажа живой рыбы с доставкой во все регионы. Гарантия качества и быстрые сроки.</p>
+      <a href="#contact">Заказать сейчас</a>
+    </div>
+  </section>
+
+  <!-- Волнистый разделитель (Wave) между Hero и "О нас" -->
+  <div class="custom-wave-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#f3f9fb" fill-opacity="1" 
+            d="M0,160L48,165.3C96,171,192,181,288,181.3C384,181,480,171,576,186.7C672,203,768,245,864,272C960,299,1056,309,1152,277.3C1248,245,1344,171,1392,133.3L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
+      </path>
+    </svg>
+  </div>
+
+  <!-- Секция "О нас" (с градиентным фоном) -->
+  <section id="about">
+    <h2>О нас</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <p>
+          Добро пожаловать на наш сайт! Мы специализируемся на продаже <span class="highlight">живой рыбы</span> 
+          высочайшего качества для различных нужд. Мы следим за качеством и используем 
+          <span class="highlight">современное оборудование</span> для доставки.
+        </p>
+        <p>Мы предлагаем живую рыбу для:</p>
+        <ul>
+          <li><span class="highlight">Владельцев частных бассейнов или хранилишь</span> для рыбы.</li>
+          <li><span class="highlight">Обустройства прудов</span> и водоёмов.</li>
+          <li>Организации <span class="highlight">платной рыбалки</span>.</li>
+          <li><span class="highlight">Ресторанов</span>, имеющих возможность хранения живой рыбы 
+              и готовых оформить заказ на <span class="highlight">минимально допустимый объём</span>.</li>
+        </ul>
+        <p>
+          Мы тщательно следим за транспортировкой и используем 
+          <span class="highlight">передовые технологии</span>, чтобы рыба прибыла к вам 
+          в лучшем состоянии. С нами вы получаете:
+        </p>
+        <ul>
+          <li><span class="highlight">Индивидуальный подход</span> к каждому заказу.</li>
+          <li><span class="highlight">Быструю и надёжную доставку</span> с соблюдением всех условий.</li>
+          <li><span class="highlight">Гарантию свежести</span> и качества.</li>
+        </ul>
+        <p>
+          Мы стремимся к <span class="highlight">долгосрочным отношениям</span> с нашими клиентами, 
+          обеспечивая <span class="highlight">стабильность поставок</span> и 
+          <span class="highlight">профессиональное обслуживание</span>. 
+          Свяжитесь с нами, чтобы узнать больше или оформить заказ!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция "Ассортимент рыбы" -->
+  <section id="fish">
+    <h2>Ассортимент</h2>
+    <!-- Блок с описанием Карпа -->
+    <div class="fish-info">
+      <h3>Карп</h3>
+      <p>
+        Цена: <span class="highlight">2300 KZT </span>/<span class="highlight"> 1KG<br /></span>
+        Поставка: <span class="highlight">живая</span> (в ёмкостях под кислородом)<br />
+        Минимальная партия: <span class="highlight">2 т.</span><br />
+        Максимальная партия: <span class="highlight">3 т.</span><br />
+        Средний вес одной рыбы: <span class="highlight">2KG</span><br />
+        Тип рыбы: <span class="highlight">прудовая</span>
+      </p>
+    </div>
+
+    <!-- Слайдшоу (carousel) с фото/видео карпа -->
+    <div class="fish-carousel-container">
+      <!-- Слайд 1 (видео) -->
+      <div class="fish-slide active">
+        <video src="video/carpvd1.mp4" controls></video>
+      </div>
+      <!-- Слайд 2 (фото 1) -->
+      <div class="fish-slide">
+        <img src="img/carpimg1.jpg" alt="Карп 1">
+      </div>
+    
+    <!-- Кнопки переключения слайдов -->
+    <div class="carousel-buttons fish-carousel-buttons">
+      <button class="fish-prev">Назад</button>
+      <button class="fish-next">Вперед</button>
+    </div>
+  </section>
+
+  <!-- Секция "Отзывы" (с лёгким градиентом и тенью) -->
+  <section id="testimonials">
+    <h2>Отзывы клиентов</h2>
+    <div class="testimonials-container">
+      <div class="testimonial active">
+        <p>“Рыба свежая, без повреждений. Доставка быстрая и без проблем. Будем сотрудничать на постоянной основе!”</p>
+        <span>— Нуржан, Алматы</span>
+      </div>
+      <div class="testimonial">
+        <p>“Порадовало качество. Всем советую!”</p>
+        <span>— Айжан, Нур-Султан</span>
+      </div>
+      <div class="testimonial">
+        <p>“Закупили живую рыбу, качество превосходное.”</p>
+        <span>— Куат, Шымкент</span>
+      </div>
+    </div>
+    <div class="carousel-buttons">
+      <button class="prev">Назад</button>
+      <button class="next">Вперед</button>
+    </div>
+  </section>
+
+  <!-- Секция "Контакты" (две кнопки) -->
+  <section id="contact">
+    <h2>Свяжитесь с нами</h2>
+    <p>
+      У вас есть вопросы или хотите сделать заказ? Вы можете связаться с нами одним из удобных способов:
+    </p>
+    <div class="contact-buttons">
+      <!-- Кнопка для WhatsApp -->
+      <button class="whatsapp-btn"
+              onclick="window.open('https://wa.me/77001234567','_blank')">
+        Написать в WhatsApp
+      </button>
+      <!-- Кнопка для звонка (tel-ссылка) -->
+      <button class="call-btn"
+              onclick="window.location.href='tel:+77001234567'">
+        Позвонить
+      </button>
+    </div>
+  </section>
+
+  <!-- Подвал сайта -->
+  <footer>
+    <p>© 2025 «Живая рыба» – Все права защищены</p>
+  </footer>
+
+  <!-- Кнопка "Наверх" -->
+  <button class="btn-to-top" id="btnToTop">↑</button>
+
+  <!-- Подключаем JS -->
+  <script src="script.js"></script>
+</body>
+</html>
